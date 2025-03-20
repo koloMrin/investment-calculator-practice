@@ -1,6 +1,6 @@
 <form action="">
   <div class="input-group">
-    <div>
+    <p>
       <label for="initialInvestment"> Initial Investment </label>
       <input
         id="initialInvestment"
@@ -8,8 +8,8 @@
         type="number"
         [(ngModel)]="initialInvestment"
       />
-    </div>
-    <div>
+    </p>
+    <p>
       <label for="annualInvestment"> Annual Investment </label>
       <input
         id="annualInvestment"
@@ -17,10 +17,10 @@
         type="number"
         [(ngModel)]="annualInvestment"
       />
-    </div>
+    </p>
   </div>
   <div class="input-group">
-    <div>
+    <p>
       <label for="expectedReturn">Expected Return</label>
       <input
         id="expectedReturn"
@@ -28,8 +28,8 @@
         type="number"
         [(ngModel)]="expectedReturn"
       />
-    </div>
-    <div>
+    </p>
+    <p>
       <label for="duration">Duration</label>
       <input
         id="duration"
@@ -37,7 +37,7 @@
         type="number"
         [(ngModel)]="duration"
       />
-    </div>
+    </p>
   </div>
   <button (click)="onCalculate()">Calculate</button>
 </form>

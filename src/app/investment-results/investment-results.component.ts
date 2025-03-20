@@ -1,5 +1,5 @@
 import { Component, inject, Input } from '@angular/core';
-import { AnnualDataService } from './annual-data.service';
+import { InvestmentService } from './investment.service';
 import { AnnualData } from './annual-data.model';
 import { CommonModule } from '@angular/common';
 
@@ -11,7 +11,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './investment-results.component.css',
 })
 export class InvestmentResultsComponent {
-  @Input() annualData: AnnualData[] | undefined;
   columnNames = [
     'Year',
     'Investment Value',
@@ -19,4 +18,10 @@ export class InvestmentResultsComponent {
     'Total Interest',
     'Invested Capital',
   ];
+
+  investmentService = inject(InvestmentService);
+
+  get results() {
+    return this.investmentService.results;
+  }
 }

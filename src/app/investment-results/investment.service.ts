@@ -3,7 +3,9 @@ import { type AnnualData } from './annual-data.model';
 import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
-export class AnnualDataService {
+export class InvestmentService {
+  results: AnnualData[] | undefined;
+
   calculateInvestmentResults(investmentInput: InvestmentInput) {
     const annualData: AnnualData[] = [];
     let investmentValue = investmentInput.initialInvestment;
@@ -30,6 +32,6 @@ export class AnnualDataService {
       });
     }
 
-    return annualData;
+    this.results = annualData;
   }
 }

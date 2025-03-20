@@ -1,4 +1,4 @@
-@if (!annualData) {
+@if (!results) {
 <p class="center">Please enter some values and press "Calculate"</p>
 } @else {
 <table>
@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    @for (item of annualData; track $index) {
+    @for (item of results; track $index) {
     <tr>
       <td>{{ item.year }}</td>
       <td>{{ item.interest | currency }}</td>

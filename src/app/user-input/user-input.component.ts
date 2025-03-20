@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { type InvestmentInput } from '../investment-results/investment-input.model';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { InvestmentService } from '../investment-results/investment.service';
 
 @Component({
   selector: 'app-user-input',
@@ -10,14 +10,15 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './user-input.component.css',
 })
 export class UserInputComponent {
-  @Output() userInput = new EventEmitter<InvestmentInput>();
+  annualDataService = inject(InvestmentService);
+
   initialInvestment = 0;
   annualInvestment = 0;
   expectedReturn = 0;
   duration = 0;
 
   onCalculate() {
-    this.userInput.emit({
+    this.annualDataService.calculateInvestmentResults({
       initialInvestment: this.initialInvestment,
       annualInvestment: this.annualInvestment,
       expectedReturn: this.expectedReturn,
